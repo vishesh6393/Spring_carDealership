@@ -24,7 +24,15 @@ public class ProjectApplication {
 		System.out.println("your choice is "+ choice);
 		switch (choice){
 			case 1-> {
-				Car mycar=(Car)context.getBean("normalCars");
+				System.out.println("what type of tyre you want in your car :\n1.Sporty \n2.Normaltyre");
+				String beanref;
+				int tchoice=sc.nextInt();
+				if(tchoice==1){
+					beanref="normalsporty";
+				}else{
+					beanref="normalCars";
+				}
+				Car mycar=(Car)context.getBean(beanref);
 				mycar.setOwnerName(name);
 				String info=mycar.getInfo();
 				String ownern=mycar.getOwnerName();
@@ -52,6 +60,8 @@ public class ProjectApplication {
 				System.out.println("Exiting.....");
 				break;
 			}
+			default ->
+				throw new IllegalArgumentException("unexpected value : "+ choice);
 		}
 
 

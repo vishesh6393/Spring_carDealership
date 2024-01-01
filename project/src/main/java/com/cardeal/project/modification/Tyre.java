@@ -1,2 +1,5 @@
-package com.cardeal.project.modification;public interface Tyre {
+package com.cardeal.project.modification;
+
+public interface Tyre {
+    public String getTyreinfo();
 }

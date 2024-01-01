@@ -5,14 +5,28 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <!--
+<!--Beans for car's tyres -->
+    <bean id="normalTyre" class="com.cardeal.project.modified.NormalTyre"></bean>
+    <bean id="sportsTyre" class="com.cardeal.project.modified.SportsTyre"></bean>
+    <bean id="heavyTyre" class="com.cardeal.project.modified.HeavyTyre"></bean>
 
-     1. Create IncomeTax and PropertyTax beans with id in camelCasing e.g. "incomeTax".
-    -->
+<!--    ef="normalsporty";-->
+<!--    }else{-->
+<!--    beanref="normalCars";-->
+<bean id="normalsporty" class="com.cardeal.project.mycars.NormalCars">
+    <constructor-arg ref="sportsTyre"></constructor-arg>
+</bean>
+<!--beans for car -->
+    <bean id="normalCars" class="com.cardeal.project.mycars.NormalCars">
+        <constructor-arg ref="normalTyre"></constructor-arg>
+    </bean>
 
-    <bean id="normalCars" class="com.cardeal.project.mycars.NormalCars"></bean>
-    <bean id="sportsCar" class="com.cardeal.project.mycars.SportsCar"></bean>
-    <bean id="truck" class="com.cardeal.project.mycars.Truck"></bean>
+    <bean id="sportsCar" class="com.cardeal.project.mycars.SportsCar">
+        <constructor-arg ref="sportsTyre"></constructor-arg>
+    </bean>
+    <bean id="truck" class="com.cardeal.project.mycars.Truck">
+        <constructor-arg ref="heavyTyre"></constructor-arg>
+    </bean>
 
 
 
